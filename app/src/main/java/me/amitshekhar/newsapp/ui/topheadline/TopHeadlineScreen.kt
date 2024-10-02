@@ -35,6 +35,7 @@ fun TopHeadlineRoute(
     onNewsClick: (url: String) -> Unit,
     viewModel: TopHeadlineViewModel = hiltViewModel()
 ) {
+    viewModel.fetchNews(AppConstant.COUNTRY)
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
     Scaffold(topBar = {

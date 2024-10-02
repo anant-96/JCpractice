@@ -21,13 +21,9 @@ class TopHeadlineViewModel @Inject constructor(private val topHeadlineRepository
 
     val uiState: StateFlow<UiState<List<Article>>> = _uiState
 
-    init {
-        fetchNews()
-    }
-
-    private fun fetchNews() {
+    fun fetchNews(country: String) {
         viewModelScope.launch {
-            topHeadlineRepository.getTopHeadlines(COUNTRY)
+            topHeadlineRepository.getTopHeadlines(country)
                 .catch { e ->
                     _uiState.value = UiState.Error(e.toString())
                 }.collect {
@@ -35,5 +31,4 @@ class TopHeadlineViewModel @Inject constructor(private val topHeadlineRepository
                 }
         }
     }
-
 }
