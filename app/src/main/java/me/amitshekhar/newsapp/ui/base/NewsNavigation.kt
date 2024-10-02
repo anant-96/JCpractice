@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import me.amitshekhar.newsapp.ui.HomeScreenRoute
+import me.amitshekhar.newsapp.ui.newssources.NewsSourceRoute
 import me.amitshekhar.newsapp.ui.topheadline.TopHeadlineRoute
 
 sealed class Route(val name: String) {
@@ -36,6 +37,11 @@ fun NewsNavHost() {
         }
         composable(route = Route.TopHeadline.name) {
             TopHeadlineRoute(onNewsClick = {
+                openCustomChromeTab(context, it)
+            })
+        }
+        composable(route = Route.NewsSource.name) {
+            NewsSourceRoute(onNewsClick = {
                 openCustomChromeTab(context, it)
             })
         }

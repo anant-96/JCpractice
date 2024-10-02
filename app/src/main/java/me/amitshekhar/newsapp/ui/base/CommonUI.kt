@@ -1,5 +1,6 @@
 package me.amitshekhar.newsapp.ui.base
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import me.amitshekhar.newsapp.R
 
@@ -50,4 +52,24 @@ fun ShowError(text: String) {
         )
     }
 
+}
+
+@Composable
+fun CreateHeading(nameOfTheScreen: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth() // Make the Box occupy the entire width
+            .padding(vertical = 16.dp) // Add vertical padding
+            .background(color = Color.Green) // Set the background color
+    ) {
+        Text(
+            text = nameOfTheScreen,
+            style = MaterialTheme.typography.titleLarge, // Apply a typography style for heading
+            color = MaterialTheme.colorScheme.primary, // Use primary color for heading text
+            textAlign = TextAlign.Center, // Center align the text
+            modifier = Modifier
+                .fillMaxWidth() // Make the text occupy the entire width of the Box
+                .padding(horizontal = 16.dp) // Add horizontal padding to the text
+        )
+    }
 }
