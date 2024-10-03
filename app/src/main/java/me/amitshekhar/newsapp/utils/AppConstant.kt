@@ -13,6 +13,8 @@ object AppConstant {
     const val COUNTRIES = "Countries"
     const val SOURCES = "News Sources"
     const val SEARCH = "News Search"
+    const val DEBOUNCE_TIMEOUT = 300L
+    const val MIN_SEARCH_CHAR = 3
 
     val COUNTRYLIST = listOf(
         Country("ae", "United Arab Emirates"),

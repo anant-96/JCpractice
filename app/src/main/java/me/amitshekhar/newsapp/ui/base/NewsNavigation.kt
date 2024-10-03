@@ -15,6 +15,7 @@ import me.amitshekhar.newsapp.ui.countries.NewsByCountryRoute
 import me.amitshekhar.newsapp.ui.languages.LanguagesRoute
 import me.amitshekhar.newsapp.ui.languages.NewsByLanguageRoute
 import me.amitshekhar.newsapp.ui.newssources.NewsSourceRoute
+import me.amitshekhar.newsapp.ui.search.SearchRoute
 import me.amitshekhar.newsapp.ui.topheadline.TopHeadlineRoute
 
 sealed class Route(val name: String) {
@@ -51,6 +52,7 @@ fun NewsNavHost() {
                 openCustomChromeTab(context, it)
             })
         }
+
         // Countries
         composable(route = Route.Countries.name) {
             CountriesRoute(onItemClick = {
@@ -65,6 +67,7 @@ fun NewsNavHost() {
                 )
             }
         }
+
         // Languages
         composable(route = Route.Language.name) {
             LanguagesRoute(onItemClick = {
@@ -78,6 +81,10 @@ fun NewsNavHost() {
                     onNewsClick = { url -> openCustomChromeTab(context, url) }, language = language
                 )
             }
+        }
+
+        composable(route = Route.Search.name) {
+            SearchRoute(onNewsClick = {openCustomChromeTab(context, it)})
         }
     }
 
