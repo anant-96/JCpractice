@@ -1,6 +1,7 @@
 package me.amitshekhar.newsapp.utils
 
 import me.amitshekhar.newsapp.data.model.Country
+import me.amitshekhar.newsapp.data.model.Language
 
 object AppConstant {
 
@@ -68,5 +69,20 @@ object AppConstant {
         Country("us", "United States"),
         Country("ve", "Venezuela"),
         Country("za", "South Africa")
+    )
+    val LANGUAGELIST = listOf(
+        Language("Arabic", "ar"),
+        Language("German", "de"),
+        Language("English", "en"),
+        Language("Spanish", "es"),
+        Language("French", "fr"),
+        Language("Hebrew", "he"),
+        Language("Italian", "it"),
+        Language("Dutch", "nl"),
+        Language("Norwegian", "no"),
+        Language("Portuguese", "pt"),
+        Language("Russian", "ru"),
+        Language("Swedish", "sv"),
+        Language("Chinese", "zh")
     )
 }

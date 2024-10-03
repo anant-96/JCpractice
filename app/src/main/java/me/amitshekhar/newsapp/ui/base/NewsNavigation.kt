@@ -12,6 +12,8 @@ import androidx.navigation.compose.rememberNavController
 import me.amitshekhar.newsapp.ui.HomeScreenRoute
 import me.amitshekhar.newsapp.ui.countries.CountriesRoute
 import me.amitshekhar.newsapp.ui.countries.NewsByCountryRoute
+import me.amitshekhar.newsapp.ui.languages.LanguagesRoute
+import me.amitshekhar.newsapp.ui.languages.NewsByLanguageRoute
 import me.amitshekhar.newsapp.ui.newssources.NewsSourceRoute
 import me.amitshekhar.newsapp.ui.topheadline.TopHeadlineRoute
 
@@ -22,6 +24,7 @@ sealed class Route(val name: String) {
     object Countries : Route("countries")
     object NewsByCountry : Route("{country}/newsbycountry")
     object Language : Route("language")
+    object NewsByLanguage : Route("{language}/newsbylanguage")
     object Search : Route("search")
 }
 
@@ -59,6 +62,20 @@ fun NewsNavHost() {
             if (country != null) {
                 NewsByCountryRoute(
                     onNewsClick = { url -> openCustomChromeTab(context, url) }, country = country
+                )
+            }
+        }
+        // Languages
+        composable(route = Route.Language.name) {
+            LanguagesRoute(onItemClick = {
+                navController.navigate("$it/newsbylanguage")
+            })
+        }
+        composable(route = Route.NewsByLanguage.name) {
+            val language = it.arguments?.getString("language")
+            if (language != null) {
+                NewsByLanguageRoute(
+                    onNewsClick = { url -> openCustomChromeTab(context, url) }, language = language
                 )
             }
         }
