@@ -15,12 +15,15 @@ import me.amitshekhar.newsapp.ui.countries.NewsByCountryRoute
 import me.amitshekhar.newsapp.ui.languages.LanguagesRoute
 import me.amitshekhar.newsapp.ui.languages.NewsByLanguageRoute
 import me.amitshekhar.newsapp.ui.newssources.NewsSourceRoute
+import me.amitshekhar.newsapp.ui.offlinearticles.OfflineArticleRoute
 import me.amitshekhar.newsapp.ui.search.SearchRoute
 import me.amitshekhar.newsapp.ui.topheadline.TopHeadlineRoute
 
 sealed class Route(val name: String) {
     object TopHeadline : Route("topheadline")
     object Home : Route("home")
+
+    object OfflineTopHeadline : Route("offlinetopheadline")
     object NewsSource : Route("newssource")
     object Countries : Route("countries")
     object NewsByCountry : Route("{country}/newsbycountry")
@@ -46,6 +49,9 @@ fun NewsNavHost() {
             TopHeadlineRoute(onNewsClick = {
                 openCustomChromeTab(context, it)
             })
+        }
+        composable(route = Route.OfflineTopHeadline.name) {
+            OfflineArticleRoute(onNewsClick = { openCustomChromeTab(context, it) })
         }
         composable(route = Route.NewsSource.name) {
             NewsSourceRoute(onNewsClick = {
@@ -84,7 +90,7 @@ fun NewsNavHost() {
         }
 
         composable(route = Route.Search.name) {
-            SearchRoute(onNewsClick = {openCustomChromeTab(context, it)})
+            SearchRoute(onNewsClick = { openCustomChromeTab(context, it) })
         }
     }
 

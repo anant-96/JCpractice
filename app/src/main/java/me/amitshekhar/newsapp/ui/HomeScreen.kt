@@ -24,6 +24,7 @@ import me.amitshekhar.newsapp.data.model.HomeItem
 import me.amitshekhar.newsapp.ui.base.Route
 import me.amitshekhar.newsapp.utils.AppConstant.COUNTRIES
 import me.amitshekhar.newsapp.utils.AppConstant.LANGUAGES
+import me.amitshekhar.newsapp.utils.AppConstant.OFFLINE_TOP_HEADLINES
 import me.amitshekhar.newsapp.utils.AppConstant.SEARCH
 import me.amitshekhar.newsapp.utils.AppConstant.SOURCES
 import me.amitshekhar.newsapp.utils.AppConstant.TOP_HEADLINES
@@ -49,6 +50,7 @@ fun HomeScreen(onItemClick: (url: Route) -> Unit) {
     homeScreenList.add(HomeItem(3, Route.Countries, COUNTRIES))
     homeScreenList.add(HomeItem(4, Route.Language, LANGUAGES))
     homeScreenList.add(HomeItem(5, Route.Search, SEARCH))
+    homeScreenList.add(HomeItem(6, Route.OfflineTopHeadline, OFFLINE_TOP_HEADLINES))
     LazyColumn(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
         items(homeScreenList, key = { homeItem -> homeItem.id }) { homeItem ->
             HomeItemComposable(homeItem, onItemClick)

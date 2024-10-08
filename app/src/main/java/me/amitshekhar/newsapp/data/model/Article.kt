@@ -1,6 +1,7 @@
 package me.amitshekhar.newsapp.data.model
 
 import com.google.gson.annotations.SerializedName
+import me.amitshekhar.newsapp.data.local.entity.LocalArticle
 
 data class Article(
     @SerializedName("title")
@@ -14,3 +15,13 @@ data class Article(
     @SerializedName("source")
     val source: Source
 )
+
+fun Article.toArticleEntity(): LocalArticle {
+    return LocalArticle(
+        title = title,
+        description = description,
+        url = url,
+        imageUrl = imageUrl,
+        source = source.toSourceEntity()
+    )
+}

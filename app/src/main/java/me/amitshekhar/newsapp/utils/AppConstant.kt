@@ -9,6 +9,7 @@ object AppConstant {
     const val COUNTRY = "us"
     const val APP_NAME = "NewsApp"
     const val TOP_HEADLINES = "Top headlines"
+    const val OFFLINE_TOP_HEADLINES = "Offline Top headlines"
     const val LANGUAGES = "Languages"
     const val COUNTRIES = "Countries"
     const val SOURCES = "News Sources"
