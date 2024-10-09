@@ -18,11 +18,12 @@ import me.amitshekhar.newsapp.ui.newssources.NewsSourceRoute
 import me.amitshekhar.newsapp.ui.offlinearticles.OfflineArticleRoute
 import me.amitshekhar.newsapp.ui.search.SearchRoute
 import me.amitshekhar.newsapp.ui.topheadline.TopHeadlineRoute
+import me.amitshekhar.newsapp.ui.topheadlinewithpaging.TopHeadlineWithPagingRoute
 
 sealed class Route(val name: String) {
     object TopHeadline : Route("topheadline")
     object Home : Route("home")
-
+    object TopHeadlineWithPaging : Route("topheadlinewithpaging")
     object OfflineTopHeadline : Route("offlinetopheadline")
     object NewsSource : Route("newssource")
     object Countries : Route("countries")
@@ -52,6 +53,11 @@ fun NewsNavHost() {
         }
         composable(route = Route.OfflineTopHeadline.name) {
             OfflineArticleRoute(onNewsClick = { openCustomChromeTab(context, it) })
+        }
+        composable(route = Route.TopHeadlineWithPaging.name) {
+            TopHeadlineWithPagingRoute(onNewsClick = {
+                openCustomChromeTab(context, it)
+            })
         }
         composable(route = Route.NewsSource.name) {
             NewsSourceRoute(onNewsClick = {

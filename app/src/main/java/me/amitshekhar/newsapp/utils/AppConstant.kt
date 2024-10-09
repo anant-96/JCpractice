@@ -10,12 +10,15 @@ object AppConstant {
     const val APP_NAME = "NewsApp"
     const val TOP_HEADLINES = "Top headlines"
     const val OFFLINE_TOP_HEADLINES = "Offline Top headlines"
+    const val TOP_HEADLINES_WITH_PAGING = "TopHeadlines With Paging"
     const val LANGUAGES = "Languages"
     const val COUNTRIES = "Countries"
     const val SOURCES = "News Sources"
     const val SEARCH = "News Search"
     const val DEBOUNCE_TIMEOUT = 300L
     const val MIN_SEARCH_CHAR = 3
+    const val INITIAL_PAGE = 1
+    const val PAGE_SIZE = 10
 
     val COUNTRYLIST = listOf(
         Country("ae", "United Arab Emirates"),

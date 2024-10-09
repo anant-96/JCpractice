@@ -28,6 +28,7 @@ import me.amitshekhar.newsapp.utils.AppConstant.OFFLINE_TOP_HEADLINES
 import me.amitshekhar.newsapp.utils.AppConstant.SEARCH
 import me.amitshekhar.newsapp.utils.AppConstant.SOURCES
 import me.amitshekhar.newsapp.utils.AppConstant.TOP_HEADLINES
+import me.amitshekhar.newsapp.utils.AppConstant.TOP_HEADLINES_WITH_PAGING
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -51,6 +52,7 @@ fun HomeScreen(onItemClick: (url: Route) -> Unit) {
     homeScreenList.add(HomeItem(4, Route.Language, LANGUAGES))
     homeScreenList.add(HomeItem(5, Route.Search, SEARCH))
     homeScreenList.add(HomeItem(6, Route.OfflineTopHeadline, OFFLINE_TOP_HEADLINES))
+    homeScreenList.add(HomeItem(7, Route.TopHeadlineWithPaging, TOP_HEADLINES_WITH_PAGING))
     LazyColumn(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
         items(homeScreenList, key = { homeItem -> homeItem.id }) { homeItem ->
             HomeItemComposable(homeItem, onItemClick)
