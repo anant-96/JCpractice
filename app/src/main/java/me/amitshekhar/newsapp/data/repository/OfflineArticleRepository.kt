@@ -29,6 +29,18 @@ class OfflineArticleRepository @Inject constructor(
             }
     }
 
+    @OptIn(ExperimentalCoroutinesApi::class)
+    fun fetchAndStoreArticlesInDB(country: String) {
+        flow { emit(networkService.getTopHeadlines(country)) }
+            .map {
+                it.articles.map { article -> article.toArticleEntity() }
+            }.flatMapConcat { articles ->
+                flow { emit(databaseService.deleteAllAndInsertAll(articles)) }
+            }.flatMapConcat {
+                databaseService.getArticles()
+            }
+    }
+
     fun getArticlesDirectlyFromDB(): Flow<List<LocalArticle>> {
         return databaseService.getArticles()
     }

@@ -19,6 +19,8 @@ object AppConstant {
     const val MIN_SEARCH_CHAR = 3
     const val INITIAL_PAGE = 1
     const val PAGE_SIZE = 10
+    const val UNIQUE_WORK_NAME = "newsAppPeriodicWork"
+    const val MORNING_UPDATE_TIME = 5
 
     val COUNTRYLIST = listOf(
         Country("ae", "United Arab Emirates"),
