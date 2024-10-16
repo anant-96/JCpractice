@@ -14,6 +14,8 @@ import me.amitshekhar.newsapp.data.local.AppDatabaseService
 import me.amitshekhar.newsapp.data.local.DatabaseService
 import me.amitshekhar.newsapp.di.BaseUrl
 import me.amitshekhar.newsapp.di.DatabaseName
+import me.amitshekhar.newsapp.utils.DefaultDispatcherProvider
+import me.amitshekhar.newsapp.utils.DispatcherProvider
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -77,4 +79,8 @@ class ApplicationModule {
     fun provideWorkManager(@ApplicationContext context: Context): WorkManager {
         return WorkManager.getInstance(context)
     }
+
+    @Provides
+    @Singleton
+    fun provideDispatcherProvider(): DispatcherProvider = DefaultDispatcherProvider()
 }
