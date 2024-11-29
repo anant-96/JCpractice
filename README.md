@@ -3,9 +3,7 @@ This NewsApp project is implemented using the MVVM architecture pattern alongsid
 
 
 ## Architecture used is MVVM(Model View View Model)
-<p align="center">
-<img alt="mvvm-architecture"  src="https://github.com/user-attachments/assets/5040313e-7e46-48de-b45d-d448029b4e2b">
-</p>
+![ViewModel](https://github.com/user-attachments/assets/9b61b122-febe-41df-9b33-1e7e77079373)
 
 ## Feature implemented:
 - NewsApp
@@ -72,7 +70,7 @@ This NewsApp project is implemented using the MVVM architecture pattern alongsid
 
   
 ## Attaching the screenshots of the pages for reference
-![newsapp screenshots](https://github.com/user-attachments/assets/a5072d33-6fc5-4678-a5b0-82fd9c3c86d8)
+![newsapp screenshots](https://github.com/user-attachments/assets/8fc8352e-543b-42a1-ad56-5c6882d0d857)
 
 
 ## Dependencies used 
